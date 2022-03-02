@@ -1,0 +1,65 @@
+<div *ngIf="mostrarError">
+    <app-mensaje-error [mensajeError]="mensajeError" (emitirMostrar)="this.mostrarError = $event"></app-mensaje-error>
+</div>
+
+<div *ngIf="mostrarExito">
+    <app-mensaje-exito [mensajeExito]="mensajeExito" (emitirMostrar)="this.mostrarExito = $event"></app-mensaje-exito>
+</div>
+
+<div class="row">
+    <div class="col-lg-4 form-floating">
+        <input type="number" class="form-control" id="numeroDocumento" [(ngModel)]="numeroDocumento"
+            placeholder="Numero de documento *" required>
+        <label for="numeroDocumento"><i class="bi bi-person-square mx-3"></i>Numero de documento</label>
+    </div>
+    <div class="col mt-2">
+        <button type="button" class="btn btn-primary" [disabled]="!numeroDocumento"
+            (click)="consultarUsuarioPorNumeroDocumento()">Buscar</button>
+    </div>
+</div>
+
+<div *ngIf="reservaForm.get('usuario').value as usuario" class="mt-4">
+    <div class="table-container">
+        <table class="table table-primary mb-4">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Numero Documento</th>
+                    <th>Reservas Acumuladas</th>
+                    <th>Categoria</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="table-light">
+                    <td>{{usuario.nombre}}</td>
+                    <td>{{usuario.apellido}}</td>
+                    <td>{{usuario.numeroDocumento}}</td>
+                    <td>{{usuario.reservasAcumulado}}</td>
+                    <td>{{usuario.categoriaNombre}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <form name="reservaForm" role="form" novalidate (ngSubmit)="crear()" [formGroup]="reservaForm">
+        <div class="mb-3">
+            <div class="form-group">
+                <label class="form-control-label" for="field_fechaReserva">Fecha Reserva</label>
+                <div class="d-flex">
+                    <div id="fecha-control" class="date-container">
+                        <input validar id="field_fechaReserva" type="date" min="{{ hoy | date:'yyyy-MM-dd'}}"
+                            class="form-control" name="fechaReserva" formControlName="fechaReserva" />
+                    </div>
+                    <div class="date-container">
+                        <input validar id="field_horaReserva" type="time" class="form-control" name="horaReserva"
+                            formControlName="horaReserva" placeholder="HH:mm" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="justify-content-center mt-3">
+            <button type="submit" [disabled]="reservaForm.invalid" class="btn btn-primary">Crear</button>
+        </div>
+    </form>
+</div>

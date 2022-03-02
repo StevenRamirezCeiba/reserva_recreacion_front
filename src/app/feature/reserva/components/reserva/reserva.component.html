@@ -1,0 +1,11 @@
+<div class="row align-items-start">
+    <div class="nav col-2 flex-column nav-pills me-5" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        <a class="nav-link" id="pills-listar-tab" data-bs-toggle="pill" data-bs-target="#pills-listar" type="button"
+            role="tab" aria-controls="pills-listar" aria-selected="false" [routerLink]="'listar'" routerLinkActive="active">Listado de Reservas</a>
+        <a class="nav-link" id="pills-crear-tab" data-bs-toggle="pill" data-bs-target="#pills-crear" type="button"
+            role="tab" aria-controls="pills-crear" aria-selected="false" [routerLink]="'crear'" routerLinkActive="active">Crear Reserva</a>
+    </div>
+    <div class="tab-content col" id="v-pills-tabContent">
+        <router-outlet></router-outlet>
+    </div>
+</div>

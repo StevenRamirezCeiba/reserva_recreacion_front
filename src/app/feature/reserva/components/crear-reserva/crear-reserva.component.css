@@ -1,0 +1,11 @@
+td, th {
+    text-align: center;
+}
+
+.form-control-label {
+    font-size: 17px;
+    font-weight: bold;
+}
+#fecha-control {
+    margin-right: 10px;
+}
