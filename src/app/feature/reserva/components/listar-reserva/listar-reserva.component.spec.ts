@@ -24,7 +24,7 @@ describe('ListarReservaComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ListarReservaComponent],
       imports: [CommonModule, HttpClientModule, RouterTestingModule, FormsModule],
-      providers: [ReservaService, HttpService]
+      providers: [ReservaService, MensajesSharedService, HttpService]
     })
       .compileComponents();
   });
@@ -57,6 +57,7 @@ describe('ListarReservaComponent', () => {
     component.numeroDocumento = 1075318997;
     component.listarReservasPorUsuarioNumeroDocumento();
     component.cancelarReserva(component.reservas[0]);
-    component.listarReservasPorUsuarioNumeroDocumento();
+    mensajesSharedService.mensajeExito$.subscribe(mensaje => expect(mensaje).toBe('Reserva cancelada con éxito!'));
+    mensajesSharedService.mostrarExito$.subscribe(mostrar => expect(mostrar).toBe(true));
   });
 });

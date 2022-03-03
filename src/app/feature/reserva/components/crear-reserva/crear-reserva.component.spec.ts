@@ -11,12 +11,14 @@ import { of } from 'rxjs';
 import * as moment from 'moment';
 
 import { CrearReservaComponent } from './crear-reserva.component';
+import { MensajesSharedService } from '@reserva/shared/service/mensajes-shared.service';
 
 describe('CrearReservaComponent', () => {
   let component: CrearReservaComponent;
   let fixture: ComponentFixture<CrearReservaComponent>;
   let reservaService: ReservaService;
   let usuarioService: UsuarioService;
+  let mensajesSharedService: MensajesSharedService;
   let usuario: Usuario;
   let fechaActual: moment.Moment;
 
@@ -30,7 +32,7 @@ describe('CrearReservaComponent', () => {
         ReactiveFormsModule,
         FormsModule
       ],
-      providers: [ReservaService, UsuarioService, HttpService]
+      providers: [ReservaService, UsuarioService, MensajesSharedService, HttpService]
     })
     .compileComponents();
   });
@@ -42,6 +44,7 @@ describe('CrearReservaComponent', () => {
     component = fixture.componentInstance;
     reservaService = TestBed.inject(ReservaService);
     usuarioService = TestBed.inject(UsuarioService);
+    mensajesSharedService = TestBed.inject(MensajesSharedService);
     spyOn(reservaService, 'guardar').and.returnValue(of(1));
     spyOn(usuarioService, 'consultarPorNumeroDocumento').and.returnValue(of(usuario));
     fixture.detectChanges();
@@ -49,6 +52,7 @@ describe('CrearReservaComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+    expect(mensajesSharedService).toBeDefined();
   });
 
   it('formulario es invalido cuando esta vacio', () => {
