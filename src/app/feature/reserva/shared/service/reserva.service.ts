@@ -41,7 +41,7 @@ export class ReservaService {
     );
   }
 
-  protected convertirFechasDesdeCliente(entidad: TipoRespuestaEntidad): TipoRespuestaEntidad {
+  private convertirFechasDesdeCliente(entidad: TipoRespuestaEntidad): TipoRespuestaEntidad {
     const copy: TipoRespuestaEntidad = Object.assign({}, entidad, {
       fechaCreacion: entidad.fechaCreacion && entidad.fechaCreacion.isValid() ? entidad.fechaCreacion.format(DATE_TIME_FORMAT) : undefined,
       fechaReserva: entidad.fechaReserva && entidad.fechaReserva.isValid() ? entidad.fechaReserva.format(DATE_TIME_FORMAT) : undefined
@@ -49,15 +49,7 @@ export class ReservaService {
     return copy;
   }
 
-  protected convertirFechasDesdeServidor(entidad: TipoRespuestaEntidad): TipoRespuestaEntidad {
-    if (entidad) {
-      entidad.fechaCreacion = entidad.fechaCreacion ? moment(entidad.fechaCreacion) : undefined;
-      entidad.fechaReserva = entidad.fechaReserva ? moment(entidad.fechaReserva) : undefined;
-    }
-    return entidad;
-  }
-
-  protected convertirArreglosFechasDesdeServidor(entidades: TipoRespuestaEntidadArreglo): TipoRespuestaEntidadArreglo {
+  private convertirArreglosFechasDesdeServidor(entidades: TipoRespuestaEntidadArreglo): TipoRespuestaEntidadArreglo {
     if (entidades) {
       entidades.forEach((entidad: TipoRespuestaEntidad) => {
         entidad.fechaCreacion = entidad.fechaCreacion ? moment(entidad.fechaCreacion) : undefined;

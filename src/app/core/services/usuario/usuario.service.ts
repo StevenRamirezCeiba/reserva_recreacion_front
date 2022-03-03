@@ -6,7 +6,6 @@ import { HttpService } from '../http.service';
 import * as moment from 'moment';
 
 type TipoRespuestaEntidad = Usuario;
-type TipoRespuestaEntidadArreglo = Usuario[];
 
 @Injectable({
   providedIn: 'root'
@@ -24,28 +23,11 @@ export class UsuarioService {
     ).pipe(map((res: TipoRespuestaEntidad) => this.convertirFechasDesdeServidor(res)));
   }
 
-  protected convertirFechasDesdeCliente(entidad: TipoRespuestaEntidad): TipoRespuestaEntidad {
-    const copy: TipoRespuestaEntidad = Object.assign({}, entidad, {
-      fechaCreacion:
-      entidad.fechaCreacion && entidad.fechaCreacion.isValid() ? entidad.fechaCreacion.toJSON() : undefined
-    });
-    return copy;
-  }
-
-  protected convertirFechasDesdeServidor(entidad: TipoRespuestaEntidad): TipoRespuestaEntidad {
+  private convertirFechasDesdeServidor(entidad: TipoRespuestaEntidad): TipoRespuestaEntidad {
     if (entidad) {
       entidad.fechaCreacion = entidad.fechaCreacion ? moment(entidad.fechaCreacion) : undefined;
     }
     return entidad;
-  }
-
-  protected convertirArreglosFechasDesdeServidor(entidades: TipoRespuestaEntidadArreglo): TipoRespuestaEntidadArreglo {
-    if (entidades) {
-      entidades.forEach((entidad: TipoRespuestaEntidad) => {
-        entidad.fechaCreacion = entidad.fechaCreacion ? moment(entidad.fechaCreacion) : undefined;
-      });
-    }
-    return entidades;
   }
 
 }
