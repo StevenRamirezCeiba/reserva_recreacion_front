@@ -1,16 +1,8 @@
-<div *ngIf="mostrarError">
-    <app-mensaje-error [mensajeError]="mensajeError" (emitirMostrar)="this.mostrarError = $event"></app-mensaje-error>
-</div>
-
-<div *ngIf="mostrarExito">
-    <app-mensaje-exito [mensajeExito]="mensajeExito" (emitirMostrar)="this.mostrarExito = $event"></app-mensaje-exito>
-</div>
-
 <div class="row">
     <div class="col-lg-4 form-floating">
         <input type="number" class="form-control" id="numeroDocumento" [(ngModel)]="numeroDocumento"
             placeholder="Numero de documento *" required>
-        <label for="numeroDocumento"><i class="bi bi-person-square mx-3"></i>Numero de documento</label>
+        <label for="numeroDocumento"><em class="bi bi-person-square mx-3"></em>Numero de documento</label>
     </div>
     <div class="col mt-2">
         <button type="button" class="btn btn-primary" [disabled]="!numeroDocumento"
@@ -21,6 +13,7 @@
 <div *ngIf="reservaForm.get('usuario').value as usuario" class="mt-4">
     <div class="table-container">
         <table class="table table-primary mb-4">
+            <caption>Informacion del usuario</caption>
             <thead>
                 <tr>
                     <th>Nombre</th>

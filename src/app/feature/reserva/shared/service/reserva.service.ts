@@ -35,7 +35,7 @@ export class ReservaService {
   public actualizar(reserva: Reserva) {
     const copy = this.convertirFechasDesdeCliente(reserva);
     return this.http.doPut<Reserva>(
-      environment.endpoint,
+      this.apiEndpointReservas,
       copy,
       this.http.optsName('actualizar reservas')
     );

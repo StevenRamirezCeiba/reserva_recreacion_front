@@ -5,6 +5,7 @@ import { UsuarioService } from '@core/services/usuario/usuario.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import * as moment from 'moment';
 import { Reserva } from '@reserva/shared/model/reserva';
+import { MensajesSharedService } from '@reserva/shared/service/mensajes-shared.service';
 
 @Component({
   selector: 'app-crear-reserva',
@@ -16,17 +17,9 @@ export class CrearReservaComponent implements OnInit {
   numeroDocumento: number;
   hoy = moment().add(1, 'days').toString();
 
-  // Mensajes
-  mensajeError: string;
-  mostrarError: boolean;
-  mensajeExito: string;
-  mostrarExito: boolean;
-
   constructor(protected reservaService: ReservaService,
-              protected usuarioService: UsuarioService) {
-    this.mostrarError = false;
-    this.mostrarExito = false;
-  }
+              protected usuarioService: UsuarioService,
+              private mensajesSharedService: MensajesSharedService) {}
 
   ngOnInit() {
     this.construirFormularioProducto();
@@ -36,8 +29,8 @@ export class CrearReservaComponent implements OnInit {
     const reserva = this.crearEntidad();
     this.reservaService.guardar(reserva).subscribe(
       () => {
-        this.mensajeExito = 'Reserva creada con éxito!';
-        this.mostrarExito = true;
+        this.mensajesSharedService.emitirMensajeExito('Reserva creada con éxito!');
+        this.mensajesSharedService.emitirMostrarExito(true);
         this.reservaForm.reset();
         this.consultarUsuarioPorNumeroDocumento();
       },
@@ -76,8 +69,10 @@ export class CrearReservaComponent implements OnInit {
   }
 
   private procesarError(error: HttpErrorResponse): void {
-    this.mensajeError = error.error.mensaje;
-    this.mostrarError = true;
+    this.mensajesSharedService.emitirMensajeError(error.error.mensaje);
+    this.mensajesSharedService.emitirMostrarError(true);
+    // this.mensajeError = error.error.mensaje;
+    // this.mostrarError = true;
   }
 
   combinarFechaHora(fecha: string, hora: string): moment.Moment {

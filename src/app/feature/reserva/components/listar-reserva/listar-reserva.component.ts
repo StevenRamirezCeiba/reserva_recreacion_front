@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Reserva } from '@reserva/shared/model/reserva';
+import { MensajesSharedService } from '@reserva/shared/service/mensajes-shared.service';
 import { ReservaService } from '@reserva/shared/service/reserva.service';
 
 @Component({
@@ -14,14 +15,9 @@ export class ListarReservaComponent implements OnInit {
   reservas: Reserva[];
 
   // Mensajes
-  mensajeError: string;
-  mostrarError: boolean;
-  mensajeExito: string;
-  mostrarExito: boolean;
 
-  constructor(protected reservaService: ReservaService) {
-    this.mostrarError = false;
-    this.mostrarExito = false;
+  constructor(protected reservaService: ReservaService,
+              private mensajesSharedService: MensajesSharedService) {
   }
 
   ngOnInit(): void {
@@ -44,8 +40,8 @@ export class ListarReservaComponent implements OnInit {
     reservaPeticion.reservaEstadoId = 2;
     this.reservaService.actualizar(reservaPeticion).subscribe(
       () => {
-        this.mensajeExito = 'Reserva cancelada con éxito!';
-        this.mostrarExito = true;
+        this.mensajesSharedService.emitirMensajeExito('Reserva cancelada con éxito!');
+        this.mensajesSharedService.emitirMostrarExito(true);
         this.listarReservasPorUsuarioNumeroDocumento();
       },
       error => this.procesarError(error)
@@ -53,8 +49,8 @@ export class ListarReservaComponent implements OnInit {
   }
 
   procesarError(error: HttpErrorResponse): void {
-    this.mensajeError = error.error.mensaje;
-    this.mostrarError = true;
+    this.mensajesSharedService.emitirMensajeError(error.error.mensaje);
+    this.mensajesSharedService.emitirMostrarError(true);
   }
 
 }

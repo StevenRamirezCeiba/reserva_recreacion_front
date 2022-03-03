@@ -6,6 +6,12 @@
             role="tab" aria-controls="pills-crear" aria-selected="false" [routerLink]="'crear'" routerLinkActive="active">Crear Reserva</a>
     </div>
     <div class="tab-content col" id="v-pills-tabContent">
+        <div *ngIf="mostrarError">
+            <app-mensaje-error [mensajeError]="mensajeError" (emitirMostrar)="this.mostrarError = $event"></app-mensaje-error>
+        </div>
+        <div *ngIf="mostrarExito">
+            <app-mensaje-exito [mensajeExito]="mensajeExito" (emitirMostrar)="this.mostrarExito = $event"></app-mensaje-exito>
+        </div>
         <router-outlet></router-outlet>
     </div>
 </div>
