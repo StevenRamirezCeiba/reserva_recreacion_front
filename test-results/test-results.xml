@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<testsuite name="Chrome Headless 99.0.4844.51 (Windows 10)" package="" timestamp="2022-03-03T14:13:15" id="0" hostname="STIVEN-RAMIREZ" tests="26" errors="0" failures="0" time="0.166">
+  <properties>
+    <property name="browser.fullName" value="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/99.0.4844.51 Safari/537.36"/>
+  </properties>
+  <testcase name="ListarProductoComponent should create" time="0.035" classname="ListarProductoComponent"/>
+  <testcase name="CrearProductoComponent formulario es invalido cuando esta vacio" time="0.015" classname="CrearProductoComponent"/>
+  <testcase name="CrearProductoComponent Registrando producto" time="0.007" classname="CrearProductoComponent"/>
+  <testcase name="CrearProductoComponent should create" time="0.005" classname="CrearProductoComponent"/>
+  <testcase name="BorrarProductoComponent should create" time="0.005" classname="BorrarProductoComponent"/>
+  <testcase name="HomeComponent should create" time="0.004" classname="HomeComponent"/>
+  <testcase name="MensajeErrorComponent should create" time="0.004" classname="MensajeErrorComponent"/>
+  <testcase name="MensajeExitoComponent should create" time="0.003" classname="MensajeExitoComponent"/>
+  <testcase name="ErrorCamposPlantillaComponent should create" time="0.006" classname="ErrorCamposPlantillaComponent"/>
+  <testcase name="ReservaService should be created" time="0.001" classname="ReservaService"/>
+  <testcase name="ReservaService deberia listar reservas por su numero documento del usuario" time="0.003" classname="ReservaService"/>
+  <testcase name="ReservaComponent should create" time="0.009" classname="ReservaComponent"/>
+  <testcase name="ListarReservaComponent should create" time="0.015" classname="ListarReservaComponent"/>
+  <testcase name="CrearReservaComponent should create" time="0.014" classname="CrearReservaComponent"/>
+  <testcase name="ProductoService deberia eliminar un producto" time="0.002" classname="ProductoService"/>
+  <testcase name="ProductoService deberia crear un producto" time="0.001" classname="ProductoService"/>
+  <testcase name="ProductoService deberia listar productos" time="0.001" classname="ProductoService"/>
+  <testcase name="ProductoService should be created" time="0.001" classname="ProductoService"/>
+  <testcase name="NavbarComponent should create" time="0.006" classname="NavbarComponent"/>
+  <testcase name="ProductoComponent should create" time="0.011" classname="ProductoComponent"/>
+  <testcase name="UsuarioService deberia listar un usuario por numero de documento" time="0.002" classname="UsuarioService"/>
+  <testcase name="UsuarioService should be created" time="0.001" classname="UsuarioService"/>
+  <testcase name="AppComponent should create the app" time="0.004" classname="AppComponent"/>
+  <testcase name="AppComponent should have as title 'app-base'" time="0.005" classname="AppComponent"/>
+  <testcase name="SecurityGuard should ..." time="0.001" classname="SecurityGuard"/>
+  <testcase name="ToolbarComponent should create" time="0.005" classname="ToolbarComponent"/>
+  <system-out>
+    <![CDATA[Chrome Headless 99.0.4844.51 (Windows 10) ERROR: 'NG0304: 'router-outlet' is not a known element:
+1. If 'router-outlet' is an Angular component, then verify that it is part of this module.
+2. If 'router-outlet' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.'
+,Chrome Headless 99.0.4844.51 (Windows 10) ERROR: 'NG0303: Can't bind to 'routerLink' since it isn't a known property of 'a'.'
+,Chrome Headless 99.0.4844.51 (Windows 10) ERROR: 'NG0303: Can't bind to 'routerLink' since it isn't a known property of 'a'.'
+
+]]>
+  </system-out>
+  <system-err/>
+</testsuite>

@@ -5,7 +5,6 @@ import { UsuarioService } from '@core/services/usuario/usuario.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import * as moment from 'moment';
 import { Reserva } from '@reserva/shared/model/reserva';
-// import { MensajeErrorComponent } from '@shared/components/mensaje-error/mensaje-error.component';
 
 @Component({
   selector: 'app-crear-reserva',

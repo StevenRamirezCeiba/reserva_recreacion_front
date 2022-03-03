@@ -13,11 +13,13 @@ type TipoRespuestaEntidadArreglo = Usuario[];
 })
 export class UsuarioService {
 
+  apiEndpointUsuarios = `${environment.endpoint}/usuarios`;
+
   constructor(protected http: HttpService) { }
 
   public consultarPorNumeroDocumento(numeroDocumento: number) {
     return this.http.doGet<Usuario>(
-      `${environment.endpoint}/usuarios/${numeroDocumento}`,
+      `${this.apiEndpointUsuarios}/${numeroDocumento}`,
       this.http.optsName('consultar un usuario por su numero de documento')
     ).pipe(map((res: TipoRespuestaEntidad) => this.convertirFechasDesdeServidor(res)));
   }

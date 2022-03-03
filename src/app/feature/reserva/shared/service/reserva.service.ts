@@ -11,11 +11,14 @@ type TipoRespuestaEntidadArreglo = Reserva[];
 
 @Injectable()
 export class ReservaService {
+
+  apiEndpointReservas = `${environment.endpoint}/reservas`;
+
   constructor(protected http: HttpService) { }
 
   public listarReservasPorUsuarioNumeroDocumento(numeroDocumento: number) {
     return this.http.doGet<Reserva[]>(
-      `${environment.endpoint}/reservas/${numeroDocumento}`,
+      `${this.apiEndpointReservas}/${numeroDocumento}`,
       this.http.optsName('listar reservas por usuario numero documento')
     ).pipe(map((res: TipoRespuestaEntidadArreglo) => this.convertirArreglosFechasDesdeServidor(res)));
   }
@@ -23,7 +26,7 @@ export class ReservaService {
   public guardar(reserva: Reserva) {
     const copy = this.convertirFechasDesdeCliente(reserva);
     return this.http.doPost<Reserva, number>(
-      `${environment.endpoint}/reservas`,
+      this.apiEndpointReservas,
       copy,
       this.http.optsName('crear reservas')
     );
@@ -32,18 +35,11 @@ export class ReservaService {
   public actualizar(reserva: Reserva) {
     const copy = this.convertirFechasDesdeCliente(reserva);
     return this.http.doPut<Reserva>(
-      `${environment.endpoint}/reservas`,
+      environment.endpoint,
       copy,
       this.http.optsName('actualizar reservas')
     );
   }
-
-  // public eliminar(producto: Producto) {
-  //   return this.http.doDelete<boolean>(
-  //     `${environment.endpoint}/productos/${producto.id}`,
-  //     this.http.optsName("eliminar productos")
-  //   );
-  // }
 
   protected convertirFechasDesdeCliente(entidad: TipoRespuestaEntidad): TipoRespuestaEntidad {
     const copy: TipoRespuestaEntidad = Object.assign({}, entidad, {
