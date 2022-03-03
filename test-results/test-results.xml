@@ -1,41 +1,53 @@
 <?xml version="1.0"?>
-<testsuite name="Chrome Headless 99.0.4844.51 (Windows 10)" package="" timestamp="2022-03-03T16:10:17" id="0" hostname="STIVEN-RAMIREZ" tests="29" errors="0" failures="0" time="0.186">
+<testsuite name="Chrome Headless 99.0.4844.51 (Windows 10)" package="" timestamp="2022-03-03T19:09:45" id="0" hostname="STIVEN-RAMIREZ" tests="35" errors="0" failures="0" time="0.19">
   <properties>
     <property name="browser.fullName" value="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/99.0.4844.51 Safari/537.36"/>
   </properties>
-  <testcase name="MensajeErrorComponent should create" time="0.029" classname="MensajeErrorComponent"/>
-  <testcase name="ReservaService deberia listar reservas por su numero documento del usuario" time="0.005" classname="ReservaService"/>
-  <testcase name="ReservaService should be created" time="0.001" classname="ReservaService"/>
-  <testcase name="ProductoService should be created" time="0.001" classname="ProductoService"/>
-  <testcase name="ProductoService deberia listar productos" time="0.002" classname="ProductoService"/>
-  <testcase name="ProductoService deberia crear un producto" time="0.001" classname="ProductoService"/>
-  <testcase name="ProductoService deberia eliminar un producto" time="0.001" classname="ProductoService"/>
-  <testcase name="MensajeExitoComponent should create" time="0.005" classname="MensajeExitoComponent"/>
-  <testcase name="ListarReservaComponent should create" time="0.016" classname="ListarReservaComponent"/>
-  <testcase name="CrearReservaComponent should create" time="0.011" classname="CrearReservaComponent"/>
-  <testcase name="CrearReservaComponent formulario es invalido cuando esta vacio" time="0.004" classname="CrearReservaComponent"/>
-  <testcase name="CrearReservaComponent Creando reserva" time="0.005" classname="CrearReservaComponent"/>
-  <testcase name="ReservaComponent should create" time="0.009" classname="ReservaComponent"/>
-  <testcase name="ProductoComponent should create" time="0.012" classname="ProductoComponent"/>
-  <testcase name="ErrorCamposPlantillaComponent should create" time="0.011" classname="ErrorCamposPlantillaComponent"/>
-  <testcase name="AppComponent should have as title 'app-base'" time="0.007" classname="AppComponent"/>
-  <testcase name="AppComponent should create the app" time="0.005" classname="AppComponent"/>
+  <testcase name="ToolbarComponent should create" time="0.028" classname="ToolbarComponent"/>
+  <testcase name="AppComponent should create the app" time="0.008" classname="AppComponent"/>
+  <testcase name="AppComponent should have as title 'app-base'" time="0.004" classname="AppComponent"/>
   <testcase name="SecurityGuard should ..." time="0.002" classname="SecurityGuard"/>
-  <testcase name="UsuarioService should be created" time="0.003" classname="UsuarioService"/>
-  <testcase name="UsuarioService deberia listar un usuario por numero de documento" time="0.002" classname="UsuarioService"/>
-  <testcase name="MensajesSharedService should be created" time="0.002" classname="MensajesSharedService"/>
+  <testcase name="BorrarProductoComponent should create" time="0.006" classname="BorrarProductoComponent"/>
   <testcase name="NavbarComponent should create" time="0.011" classname="NavbarComponent"/>
-  <testcase name="ToolbarComponent should create" time="0.006" classname="ToolbarComponent"/>
-  <testcase name="CrearProductoComponent should create" time="0.007" classname="CrearProductoComponent"/>
+  <testcase name="ReservaComponent should create" time="0.007" classname="ReservaComponent"/>
+  <testcase name="UsuarioService should be created" time="0.001" classname="UsuarioService"/>
+  <testcase name="UsuarioService deberia listar un usuario por numero de documento" time="0.002" classname="UsuarioService"/>
+  <testcase name="ListarReservaComponent Cancelando reserva" time="0.012" classname="ListarReservaComponent"/>
+  <testcase name="ListarReservaComponent should create" time="0.004" classname="ListarReservaComponent"/>
+  <testcase name="ListarReservaComponent Deberia listar las reservas por el numero de documento del usuario" time="0.005" classname="ListarReservaComponent"/>
+  <testcase name="MensajeErrorComponent should create" time="0.006" classname="MensajeErrorComponent"/>
+  <testcase name="CrearProductoComponent should create" time="0.01" classname="CrearProductoComponent"/>
   <testcase name="CrearProductoComponent formulario es invalido cuando esta vacio" time="0.006" classname="CrearProductoComponent"/>
-  <testcase name="CrearProductoComponent Registrando producto" time="0.005" classname="CrearProductoComponent"/>
-  <testcase name="ListarProductoComponent should create" time="0.008" classname="ListarProductoComponent"/>
+  <testcase name="CrearProductoComponent Registrando producto" time="0.007" classname="CrearProductoComponent"/>
+  <testcase name="ReservaService deberia listar reservas por su numero documento del usuario" time="0.001" classname="ReservaService"/>
+  <testcase name="ReservaService should be created" time="0.001" classname="ReservaService"/>
+  <testcase name="ReservaService deberia actualizar una reserva" time="0.001" classname="ReservaService"/>
+  <testcase name="ReservaService deberia crear una reserva" time="0.003" classname="ReservaService"/>
   <testcase name="HomeComponent should create" time="0.004" classname="HomeComponent"/>
-  <testcase name="BorrarProductoComponent should create" time="0.005" classname="BorrarProductoComponent"/>
+  <testcase name="ListarProductoComponent should create" time="0.007" classname="ListarProductoComponent"/>
+  <testcase name="ErrorCamposPlantillaComponent should create" time="0.006" classname="ErrorCamposPlantillaComponent"/>
+  <testcase name="MensajeExitoComponent should create" time="0.004" classname="MensajeExitoComponent"/>
+  <testcase name="ProductoComponent should create" time="0.011" classname="ProductoComponent"/>
+  <testcase name="ProductoService deberia eliminar un producto" time="0.001" classname="ProductoService"/>
+  <testcase name="ProductoService should be created" time="0.002" classname="ProductoService"/>
+  <testcase name="ProductoService deberia listar productos" time="0.001" classname="ProductoService"/>
+  <testcase name="ProductoService deberia crear un producto" time="0.001" classname="ProductoService"/>
+  <testcase name="MensajesSharedService should be created" time="0" classname="MensajesSharedService"/>
+  <testcase name="CrearReservaComponent Consultar usuario por numero documento" time="0.009" classname="CrearReservaComponent"/>
+  <testcase name="CrearReservaComponent should create" time="0.004" classname="CrearReservaComponent"/>
+  <testcase name="CrearReservaComponent formulario es invalido cuando esta vacio" time="0.003" classname="CrearReservaComponent"/>
+  <testcase name="CrearReservaComponent Creando reserva" time="0.007" classname="CrearReservaComponent"/>
+  <testcase name="CrearReservaComponent Creando entidad a guardar" time="0.005" classname="CrearReservaComponent"/>
   <system-out>
-    <![CDATA[Chrome Headless 99.0.4844.51 (Windows 10) WARN: 'Deprecation warning: value provided is not in a recognized RFC2822 or ISO format. moment construction falls back to js Date(), which is not reliable across all browsers and versions. Non RFC2822/ISO date formats are discouraged. Please refer to http://momentjs.com/guides/#/warnings/js-date/ for more info.
+    <![CDATA[Chrome Headless 99.0.4844.51 (Windows 10) ERROR: 'NG0304: 'router-outlet' is not a known element:
+1. If 'router-outlet' is an Angular component, then verify that it is part of this module.
+2. If 'router-outlet' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.'
+,Chrome Headless 99.0.4844.51 (Windows 10) ERROR: 'NG0303: Can't bind to 'routerLink' since it isn't a known property of 'a'.'
+,Chrome Headless 99.0.4844.51 (Windows 10) ERROR: 'NG0303: Can't bind to 'routerLink' since it isn't a known property of 'a'.'
+,Chrome Headless 99.0.4844.51 (Windows 10) WARN: 'Spec 'ListarReservaComponent Cancelando reserva' has no expectations.'
+,Chrome Headless 99.0.4844.51 (Windows 10) WARN: 'Deprecation warning: value provided is not in a recognized RFC2822 or ISO format. moment construction falls back to js Date(), which is not reliable across all browsers and versions. Non RFC2822/ISO date formats are discouraged. Please refer to http://momentjs.com/guides/#/warnings/js-date/ for more info.
 Arguments: 
-[0] _isAMomentObject: true, _isUTC: false, _useUTC: false, _l: undefined, _i: 2022-03-Su 00:00, _f: undefined, _strict: undefined, _locale: [object Object]
+[0] _isAMomentObject: true, _isUTC: false, _useUTC: false, _l: undefined, _i: 2022-03-Su 14:09, _f: undefined, _strict: undefined, _locale: [object Object]
 Error: 
     at Function.createFromInputFallback (http://localhost:9876/_karma_webpack_/webpack:/node_modules/moment/moment.js:319:1)
     at configFromString (http://localhost:9876/_karma_webpack_/webpack:/node_modules/moment/moment.js:2536:1)
@@ -45,13 +57,8 @@ Error:
     at createLocalOrUTC (http://localhost:9876/_karma_webpack_/webpack:/node_modules/moment/moment.js:3021:1)
     at createLocal (http://localhost:9876/_karma_webpack_/webpack:/node_modules/moment/moment.js:3025:1)
     at hooks (http://localhost:9876/_karma_webpack_/webpack:/node_modules/moment/moment.js:16:1)
-    at CrearReservaComponent.combinarFechaHora (http://localhost:9876/_karma_webpack_/webpack:/src/app/feature/reserva/components/crear-reserva/crear-reserva.component.ts:79:12)
+    at CrearReservaComponent.combinarFechaHora (http://localhost:9876/_karma_webpack_/webpack:/src/app/feature/reserva/components/crear-reserva/crear-reserva.component.ts:77:12)
     at CrearReservaComponent.crearEntidad (http://localhost:9876/_karma_webpack_/webpack:/src/app/feature/reserva/components/crear-reserva/crear-reserva.component.ts:65:16)'
-,Chrome Headless 99.0.4844.51 (Windows 10) ERROR: 'NG0304: 'router-outlet' is not a known element:
-1. If 'router-outlet' is an Angular component, then verify that it is part of this module.
-2. If 'router-outlet' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message.'
-,Chrome Headless 99.0.4844.51 (Windows 10) ERROR: 'NG0303: Can't bind to 'routerLink' since it isn't a known property of 'a'.'
-,Chrome Headless 99.0.4844.51 (Windows 10) ERROR: 'NG0303: Can't bind to 'routerLink' since it isn't a known property of 'a'.'
 
 ]]>
   </system-out>

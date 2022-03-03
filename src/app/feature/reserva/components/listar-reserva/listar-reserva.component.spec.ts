@@ -15,7 +15,8 @@ describe('ListarReservaComponent', () => {
   let fixture: ComponentFixture<ListarReservaComponent>;
   let reservaService: ReservaService;
   const reservaLista: Reserva[] = [
-    new Reserva(1, 30000, moment().startOf('days'), moment().startOf('days').add(3, 'days'), 1, 1, 'CONFIRMADA')];
+    new Reserva(1, 30000, moment().startOf('days'), moment().startOf('days').add(3, 'days'), 1, 1, 'CONFIRMADA')
+  ];
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -33,10 +34,26 @@ describe('ListarReservaComponent', () => {
     spyOn(reservaService, 'listarReservasPorUsuarioNumeroDocumento').and.returnValue(
       of(reservaLista)
     );
+    spyOn(reservaService, 'actualizar').and.returnValue(
+      of(null)
+    );
     fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('Deberia listar las reservas por el numero de documento del usuario', () => {
+    component.numeroDocumento = 1075318997;
+    component.listarReservasPorUsuarioNumeroDocumento();
+    expect(component.reservas).toBe(reservaLista);
+  });
+
+  it('Cancelando reserva', () => {
+    component.numeroDocumento = 1075318997;
+    component.listarReservasPorUsuarioNumeroDocumento();
+    component.cancelarReserva(component.reservas[0]);
+    component.listarReservasPorUsuarioNumeroDocumento();
   });
 });

@@ -42,7 +42,7 @@ describe('ListarProductoComponent', () => {
     expect(component).toBeTruthy();
     component.listaProductos.subscribe(resultado => {
       expect(2).toBe(resultado.length);
+    });
   });
-});
 
 });

@@ -25,7 +25,7 @@ describe('UsuarioService', () => {
     expect(usuarioService).toBeTruthy();
   });
 
-  it('deberia listar un usuario por numero de documento', () => {
+  it('deberia consultar un usuario por numero de documento', () => {
     const numeroDocumento = 1075318997;
     const dummyUsuario = new Usuario(1, 'CHRISTIAN', 'STEVEN', 1075318997, 0, 1, 'BRONCE', moment().startOf('days'));
     service.consultarPorNumeroDocumento(numeroDocumento).subscribe(usuario => {

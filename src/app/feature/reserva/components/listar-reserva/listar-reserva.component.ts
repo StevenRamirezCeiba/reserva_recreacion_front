@@ -14,8 +14,6 @@ export class ListarReservaComponent implements OnInit {
   numeroDocumento: number;
   reservas: Reserva[];
 
-  // Mensajes
-
   constructor(protected reservaService: ReservaService,
               private mensajesSharedService: MensajesSharedService) {
   }

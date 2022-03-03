@@ -17,8 +17,9 @@ describe('CrearReservaComponent', () => {
   let fixture: ComponentFixture<CrearReservaComponent>;
   let reservaService: ReservaService;
   let usuarioService: UsuarioService;
-  const usuario: Usuario = new Usuario(1, 'CHRISTIAN', 'STEVEN', 1075318997, 0, 1, 'BRONCE', moment().startOf('days'));
-  const fechaActual = moment().startOf('days');
+  let usuario: Usuario;
+  let fechaActual: moment.Moment;
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ CrearReservaComponent ],
@@ -35,6 +36,8 @@ describe('CrearReservaComponent', () => {
   });
 
   beforeEach(() => {
+    fechaActual = moment().startOf('seconds');
+    usuario = new Usuario(1, 'CHRISTIAN', 'STEVEN', 1075318997, 0, 1, 'BRONCE', moment().startOf('days'));
     fixture = TestBed.createComponent(CrearReservaComponent);
     component = fixture.componentInstance;
     reservaService = TestBed.inject(ReservaService);
@@ -52,6 +55,27 @@ describe('CrearReservaComponent', () => {
     expect(component.reservaForm.valid).toBeFalsy();
   });
 
+  it('Consultar usuario por numero documento', () => {
+    expect(component.reservaForm.controls.usuario.valid).toBeFalsy();
+    component.numeroDocumento = 1075318997;
+    component.consultarUsuarioPorNumeroDocumento();
+    expect(component.reservaForm.controls.usuario.value).toBe(usuario);
+  });
+
+  it('Creando entidad a guardar', () => {
+    const fechaReserva = component.combinarFechaHora(fechaActual.add(3, 'days').format('yyyy-MM-dd'),
+        fechaActual.format('HH:mm')).toString();
+    expect(component.reservaForm.valid).toBeFalsy();
+    component.reservaForm.controls.fechaReserva.setValue(fechaActual.add(3, 'days').format('yyyy-MM-dd'));
+    component.reservaForm.controls.horaReserva.setValue(fechaActual.format('HH:mm'));
+    component.reservaForm.controls.usuario.setValue(usuario);
+    expect(component.reservaForm.valid).toBeTruthy();
+    const entidad = component.crearEntidad();
+    expect(entidad.usuarioId).toEqual(1);
+    expect(entidad.fechaReserva.toString()).toBe(fechaReserva);
+    expect(entidad.reservaEstadoId).toEqual(1);
+  });
+
   it('Creando reserva', () => {
     expect(component.reservaForm.valid).toBeFalsy();
     component.reservaForm.controls.fechaReserva.setValue(fechaActual.add(3, 'days').format('yyyy-MM-dd'));
@@ -60,8 +84,7 @@ describe('CrearReservaComponent', () => {
     expect(component.reservaForm.valid).toBeTruthy();
 
     component.crear();
-
-    // Aca validamos el resultado esperado al enviar la petición
-    // TODO adicionar expect
+    expect(component.reservaForm.valid).toBeFalsy();
+    expect(component.reservaForm.controls.usuario.value).toBe(usuario);
   });
 });

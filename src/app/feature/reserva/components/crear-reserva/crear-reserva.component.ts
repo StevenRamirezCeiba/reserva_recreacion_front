@@ -57,7 +57,7 @@ export class CrearReservaComponent implements OnInit {
       });
   }
 
-  private crearEntidad(): Reserva {
+  crearEntidad(): Reserva {
     return {
       ...new Reserva(),
       usuarioId: this.reservaForm.get(['usuario'])?.value.id,
@@ -71,8 +71,6 @@ export class CrearReservaComponent implements OnInit {
   private procesarError(error: HttpErrorResponse): void {
     this.mensajesSharedService.emitirMensajeError(error.error.mensaje);
     this.mensajesSharedService.emitirMostrarError(true);
-    // this.mensajeError = error.error.mensaje;
-    // this.mostrarError = true;
   }
 
   combinarFechaHora(fecha: string, hora: string): moment.Moment {
