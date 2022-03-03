@@ -2,9 +2,7 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class MensajesSharedService {
   // Observable string sources
   private emitirCambioMensajeError = new Subject<string>();
@@ -31,5 +29,12 @@ export class MensajesSharedService {
 
   emitirMostrarExito(mostrar: boolean) {
     this.emitirCambioMostrarExito.next(mostrar);
+  }
+
+  emitirValoresIniciales() {
+    this.emitirCambioMensajeError.next(null);
+    this.emitirCambioMostrarError.next(null);
+    this.emitirCambioMensajeExito.next(null);
+    this.emitirCambioMostrarExito.next(null);
   }
 }

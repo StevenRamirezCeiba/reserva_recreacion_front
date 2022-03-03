@@ -9,11 +9,13 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
 import { FormsModule } from '@angular/forms';
+import { MensajesSharedService } from '@reserva/shared/service/mensajes-shared.service';
 
 describe('ListarReservaComponent', () => {
   let component: ListarReservaComponent;
   let fixture: ComponentFixture<ListarReservaComponent>;
   let reservaService: ReservaService;
+  let mensajesSharedService: MensajesSharedService;
   const reservaLista: Reserva[] = [
     new Reserva(1, 30000, moment().startOf('days'), moment().startOf('days').add(3, 'days'), 1, 1, 'CONFIRMADA')
   ];
@@ -31,6 +33,7 @@ describe('ListarReservaComponent', () => {
     fixture = TestBed.createComponent(ListarReservaComponent);
     component = fixture.componentInstance;
     reservaService = TestBed.inject(ReservaService);
+    mensajesSharedService = TestBed.inject(MensajesSharedService);
     spyOn(reservaService, 'listarReservasPorUsuarioNumeroDocumento').and.returnValue(
       of(reservaLista)
     );

@@ -6,8 +6,7 @@ import { ReservaService } from '@reserva/shared/service/reserva.service';
 
 @Component({
   selector: 'app-listar-reserva',
-  templateUrl: './listar-reserva.component.html',
-  styleUrls: ['./listar-reserva.component.css']
+  templateUrl: './listar-reserva.component.html'
 })
 export class ListarReservaComponent implements OnInit {
 
@@ -19,6 +18,7 @@ export class ListarReservaComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.mensajesSharedService.emitirValoresIniciales();
   }
 
   listarReservasPorUsuarioNumeroDocumento(): void {

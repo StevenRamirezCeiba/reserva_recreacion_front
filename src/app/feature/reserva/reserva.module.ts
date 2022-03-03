@@ -5,6 +5,7 @@ import { ReservaRoutingModule } from './reserva-routing.module';
 import { ReservaService } from './shared/service/reserva.service';
 import { CrearReservaComponent } from './components/crear-reserva/crear-reserva.component';
 import { ListarReservaComponent } from './components/listar-reserva/listar-reserva.component';
+import { MensajesSharedService } from './shared/service/mensajes-shared.service';
 
 
 
@@ -19,7 +20,8 @@ import { ListarReservaComponent } from './components/listar-reserva/listar-reser
     SharedModule
   ],
   providers: [
-    ReservaService
+    ReservaService,
+    MensajesSharedService
   ]
 })
 export class ReservaModule { }

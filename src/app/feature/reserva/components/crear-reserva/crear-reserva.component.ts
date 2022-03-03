@@ -23,6 +23,7 @@ export class CrearReservaComponent implements OnInit {
 
   ngOnInit() {
     this.construirFormularioProducto();
+    this.mensajesSharedService.emitirValoresIniciales();
   }
 
   crear(): void {
