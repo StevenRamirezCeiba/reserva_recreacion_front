@@ -34,7 +34,6 @@ export class CrearReservaComponent implements OnInit {
 
   crear(): void {
     const reserva = this.crearEntidad();
-    console.warn(reserva);
     this.reservaService.guardar(reserva).subscribe(
       () => {
         this.mensajeExito = 'Reserva creada con éxito!';
@@ -76,13 +75,13 @@ export class CrearReservaComponent implements OnInit {
     };
   }
 
-  procesarError(error: HttpErrorResponse): void {
+  private procesarError(error: HttpErrorResponse): void {
     this.mensajeError = error.error.mensaje;
     this.mostrarError = true;
   }
 
   combinarFechaHora(fecha: string, hora: string): moment.Moment {
-    return moment(fecha + ' ' + hora);
+    return moment(`${fecha} ${hora}`);
   }
 
 }
