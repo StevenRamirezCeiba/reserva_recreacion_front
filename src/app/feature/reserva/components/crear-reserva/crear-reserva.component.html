@@ -5,7 +5,7 @@
         <label for="numeroDocumento"><em class="bi bi-person-square mx-3"></em>Numero de documento</label>
     </div>
     <div class="col mt-2">
-        <button type="button" class="btn btn-primary" [disabled]="!numeroDocumento"
+        <button type="button" id="buscarUsuario" class="btn btn-primary" [disabled]="!numeroDocumento"
             (click)="consultarUsuarioPorNumeroDocumento()">Buscar</button>
     </div>
 </div>
@@ -42,7 +42,7 @@
                 <div class="d-flex">
                     <div id="fecha-control" class="date-container">
                         <input validar id="field_fechaReserva" type="date" min="{{ hoy | date:'yyyy-MM-dd'}}"
-                            class="form-control" name="fechaReserva" formControlName="fechaReserva" />
+                           class="form-control" name="fechaReserva" formControlName="fechaReserva" />
                     </div>
                     <div class="date-container">
                         <input validar id="field_horaReserva" type="time" class="form-control" name="horaReserva"
@@ -52,7 +52,7 @@
             </div>
         </div>
         <div class="justify-content-center mt-3">
-            <button type="submit" [disabled]="reservaForm.invalid" class="btn btn-primary">Crear</button>
+            <button type="submit" id="crearReserva" [disabled]="reservaForm.invalid" class="btn btn-primary">Crear</button>
         </div>
     </form>
 </div>

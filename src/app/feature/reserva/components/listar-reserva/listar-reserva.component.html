@@ -6,7 +6,7 @@
     </div>
     <div class="col mt-2">
         <button type="button" class="btn btn-primary" [disabled]="!numeroDocumento"
-            id="buscar" (click)="listarReservasPorUsuarioNumeroDocumento()">Buscar</button>
+            id="buscarUsuario" (click)="listarReservasPorUsuarioNumeroDocumento()">Buscar</button>
     </div>
 </div>
 
@@ -25,13 +25,13 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="table-light" *ngFor="let reserva of reservas">
+                <tr class="table-light" *ngFor="let reserva of reservas; let i = index">
                     <td>{{reserva.id}}</td>
                     <td>{{reserva.valor | currency:'COP':'symbol-narrow'}}</td>
                     <td>{{reserva.fechaCreacion | date: 'dd/MM/yyyy h:mm a'}}</td>
                     <td>{{reserva.fechaReserva | date: 'dd/MM/yyyy h:mm a'}}</td>
                     <td>{{reserva.reservaEstadoNombre}}</td>
-                    <td><button *ngIf="reserva.reservaEstadoId === 1" class="btn" (click)="cancelarReserva(reserva)"><em class="bi bi-x-circle-fill"></em></button></td>
+                    <td><button [attr.id]="'c' + i" *ngIf="reserva.reservaEstadoId === 1" class="btn" (click)="cancelarReserva(reserva)"><em class="bi bi-x-circle-fill"></em></button></td>
                 </tr>
             </tbody>
         </table>
