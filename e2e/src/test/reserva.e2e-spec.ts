@@ -21,8 +21,10 @@ describe('workspace-project Reserva', () => {
     it('Deberia crear reserva', () => {
         const NUMERO_DOCUMENTO = 1075318997;
         const FECHA_RESERVA = moment().add(10, 'days').format('MM-DD-YYYY');
-        const date = new Date();
-        const HORA_RESERVA = date.toISOString().substring(11, 16);
+        // const date = new Date();
+        const HORA_RESERVA = '10:30AM';
+        console.warn(HORA_RESERVA);
+        // const HORA_RESERVA = moment().startOf('minutes').format('HH:mm');
 
         page.navigateTo();
         navBar.clickBotonReservas();
